@@ -1,0 +1,37 @@
+{% if student_course_list %}
+    {% for c in student_course_list %}
+    <h3> {{ c.title }}</h3>
+    <h4> Available Assignments: </h4>
+    <ul>
+      {% for a in aa_sublist %}
+      {% if a.course.title == c.title %}
+      <li><a href="/grading/student/{{ student_id }}/assignment/{{ a.id }}">Assignment {{ a.assignment_no }}, Due Date: {{ a.due_date }}, Available, submitted </a></li>
+      {% endif %}
+      {% endfor %}
+      {% for a in aa_notsublist %}
+      {% if a.course.title == c.title %}
+      <li><a href="/grading/student/{{ student_id }}/assignment/{{ a.id }}">Assignment {{ a.assignment_no }}, Due Date: {{ a.due_date }}, Available, not submitted </a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <h4> Past Assignments: </h4>
+    <ul>
+      {% for a in finalp_list %}
+      {% if a.course.title == c.title %}
+      <li><a href="/grading/student/{{ student_id }}/assignment/{{ a.id }}">Assignment {{ a.assignment_no }}, Due Date: {{ a.due_date }}</a></li>
+      {% endif %}
+      {% endfor %}
+      {% for i in sub_assignlist%}
+      {% if i.assignment in finalp_list %}
+      {% if i.score == -1 %}
+      <p> Not graded yet</p>
+      {% else %}
+      Score: {{i.score}}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endfor %}
+{% else %}
+    <p>No courses are available.</p>
+{% endif %}

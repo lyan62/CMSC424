@@ -1,0 +1,24 @@
+<!--<b>You need to write the template code to implement the required functionality. Look at the other files in this directory for some examples. </b><br><br><br>-->
+
+{% if course_list %}
+	<h2> Course List: </h2>	
+    {% for c in course_list %}
+    <li> <a href="/grading/instructor/{{ instructor_id }}/course/{{ c.id }}">{{ c.title}}</a></li>
+    {% if student_assigns %}
+    {% for a in student_assigns %}
+    {% if a.assignment.course.title == c.title and a.score == -1 %}
+    <p>Submission: {{student_assigns|length}}</p>
+    {% else %}
+    <p>No submissions are available.</p>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+{% else %}
+    <p>No courses are available.</p>
+{% endif %}
+
+
+<!--<b>The below shows some debug output. The important one here is the first part -- which shows the "context". </b><br><br><br>-->
+
+<!--{% debug %}-->

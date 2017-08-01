@@ -1,0 +1,8 @@
+{% if instructor_course_assign %}
+<h3>Student Submission</h3>
+<li><a href="/grading/instructor/{{instructor_id}}/course/{{course_id}}/assignment/{{assignment_id}}/student/{{student_id}}">{{ ssub_cassign }}</a></li>
+<li>Detail: {{display}}</li>
+<li>SCORE : {{ score }}</li>
+{% endif %}
+   Grade: <input type="grade" value=" " />
+   <input type="submit" value="Submit grade" />

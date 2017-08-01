@@ -1,0 +1,14 @@
+{% if specific_assignment %}
+{{specific_assignment.course.title}}
+{% if submit_oblist %}
+{% for i in submit_oblist %}
+<li><a href="/grading/instructor/{{instructor_id}}/course/{{course_id}}/assignment/{{assignment_id}}/student/{{i.student_id}}">Student: {{studentname_list}}, Submitted Assignment: {{i.assignment}}</a></li>
+{% endfor %}
+{% else %}
+<p>No submission yet</p>
+{% endif %}
+{% else %}
+<p>No assignments yet</p>
+{% endif %}
+
+
