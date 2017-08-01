@@ -1,0 +1,8 @@
+[1, "START"]
+[2, "START"]
+[3, "START"]
+[6, "START"]
+[7, "START"]
+[6, "UPDATE", "recoverytest2_relation", "2", "A", "10", "0"]
+[7, "UPDATE", "recoverytest2_relation", "4", "A", "10", "0"]
+
